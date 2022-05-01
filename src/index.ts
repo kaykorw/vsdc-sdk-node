@@ -1,13 +1,7 @@
-export class Vsdc {
-  a: number;
-  b: number;
+import { Vsdc } from './vsdc';
 
-  constructor(a?: number, b?: number) {
-    this.a = a ?? 0;
-    this.b = b ?? 0;
-  }
+export * from './common/exceptions';
+export * from './common/interfaces';
+export { Vsdc };
 
-  ping() {
-    return 'ping!';
-  }
-}
+export default Vsdc;
