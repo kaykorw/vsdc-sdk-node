@@ -39,6 +39,3 @@ lerna-debug.log*
 
 ; Environment Keys
 .env
-
-; Others
-package-lock.json

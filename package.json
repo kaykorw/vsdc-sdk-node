@@ -1,5 +1,7 @@
 {
-  "version": "0.1.0",
+  "name": "vsdc-sdk",
+  "version": "0.0.1",
+  "author": "Kevin Kayisire",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -30,8 +32,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "vsdc-sdk-node",
-  "author": "Kevin Kayisire",
   "module": "dist/vsdc-sdk-node.esm.js",
   "size-limit": [
     {
@@ -50,5 +50,11 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^3.9.10"
-  }
+  },
+  "keywords": [
+    "VSDC",
+    "RRA",
+    "Kayko",
+    "Typescript"
+  ]
 }
