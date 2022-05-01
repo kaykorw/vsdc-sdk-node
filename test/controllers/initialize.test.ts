@@ -1,7 +1,7 @@
 import { testClient } from '../client';
 
-describe('Initialization', () => {
-  it('works', () => {
-    expect(testClient.ping()).toEqual('ping!');
+describe('Select Initialization Info', () => {
+  return testClient.selectInitInfo().then(data => {
+    expect(data).toBe(true);
   });
 });
