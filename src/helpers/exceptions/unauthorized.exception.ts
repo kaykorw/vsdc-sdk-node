@@ -3,7 +3,7 @@ export class UnauthorizedException extends Error {
   readonly name: string = 'UnauthorizedException';
   readonly message: string;
 
-  constructor(readonly requestID: string) {
+  constructor() {
     super();
     this.message = `Could not authorize the request. Maybe your API credentials are invalid!`;
   }

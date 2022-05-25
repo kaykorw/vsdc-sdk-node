@@ -3,5 +3,6 @@ export interface VsdcOptions {
   isProduction: boolean;
   tin: string;
   branchId?: string;
-  deviceSerialNo?: string;
+  deviceSerialNo: string;
+  lastRequestTime?: string;
 }
