@@ -1,5 +1,5 @@
 export interface VsdcOptions {
-  apiHostname?: string;
+  vsdcHostname?: string;
   isProduction: boolean;
   tin: string;
   branchId?: string;

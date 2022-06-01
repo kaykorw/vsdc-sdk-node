@@ -28,31 +28,25 @@ export default class Vsdc {
 
   private readonly client: AxiosInstance;
 
-  apiHostname: string;
-
+  vsdcHostname: string;
   tin: string;
   branchId: string;
   deviceSerialNo: string;
   lastRequestTime: string;
 
   constructor(readonly options: VsdcOptions) {
-    if (!options.tin || !options.deviceSerialNo) {
+    if (!options.vsdcHostname || !options.tin || !options.deviceSerialNo) {
       throw new NoCredentialsProvidedException();
     }
 
+    this.vsdcHostname = options.vsdcHostname;
     this.tin = options.tin;
     this.branchId = options.branchId || '00';
     this.deviceSerialNo = options.deviceSerialNo;
     this.lastRequestTime = options.lastRequestTime || new Date().toISOString();
 
-    this.apiHostname = options.apiHostname
-      ? options.apiHostname
-      : options.isProduction
-      ? 'https://api-ebm.rra.gov.rw'
-      : 'https://sdcsandbox.rra.gov.rw';
-
     this.client = axios.create({
-      baseURL: this.apiHostname,
+      baseURL: this.vsdcHostname,
       headers: { 'User-Agent': `kayko-node/${VERSION}` },
     });
   }
