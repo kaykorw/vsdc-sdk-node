@@ -19,7 +19,7 @@ export class InfoController {
    */
   constructor(private readonly vsdc: Vsdc) {
     this.tin = this.vsdc.tin;
-    this.host = this.vsdc.apiHostname;
+    this.host = this.vsdc.vsdcHostname;
     this.branchId = this.vsdc.branchId;
     this.deviceSerialNo = this.vsdc.deviceSerialNo;
     this.lastRequestTime = this.vsdc.lastRequestTime;
@@ -29,24 +29,66 @@ export class InfoController {
    * Lookup initial setup information of VSDC Device.
    * @returns
    */
-  initialInfo = async (): Promise<InitialInfo | any> => {
-    return JSON.stringify({});
+  initialInfo = async (): Promise<InitialInfo> => {
+    try {
+      const result = await this.vsdc.post(
+        `${this.host}/initializer/selectInitInfo`,
+        {
+          tin: this.tin,
+          bhfId: this.branchId,
+          dvcSrlNo: this.deviceSerialNo,
+        },
+        {}
+      );
+
+      return result.data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   /**
    * Lookup list of common codes registered on the RRA server.
    * @returns
    */
-  lookupCodes = async (): Promise<Code | any> => {
-    return JSON.stringify({});
+  lookupCodes = async (): Promise<Code> => {
+    try {
+      const result = await this.vsdc.post(
+        `${this.host}/code/selectCodes`,
+        {
+          tin: this.tin,
+          bhfId: this.branchId,
+          lastReqDt: this.lastRequestTime,
+        },
+        {}
+      );
+
+      return result.data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   /**
    * Lookup list of item classification registered on the RRA server.
    * @returns
    */
-  lookupItemClassification = async (): Promise<ItemClassification | any> => {
-    return JSON.stringify({});
+  lookupItemClassification = async (): Promise<ItemClassification> => {
+    try {
+      const result = await this.vsdc.post(
+        `${this.host}/itemClass/selectItemsClass`,
+        {
+          tin: this.tin,
+          bhfId: this.branchId,
+          lastReqDt: this.lastRequestTime,
+        },
+        {}
+      );
+
+      return result.data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   /**
@@ -54,27 +96,65 @@ export class InfoController {
    * @param customerTin
    * @returns
    */
-  lookupCustomerByTin = async (
-    customerTin: string
-  ): Promise<Customer | any> => {
-    return JSON.stringify({
-      customerTin,
-    });
+  lookupCustomerByTin = async (customerTin: string): Promise<Customer> => {
+    try {
+      const result = await this.vsdc.post(
+        `${this.host}/customers/selectCustomer`,
+        {
+          tin: this.tin,
+          bhfId: this.branchId,
+          custmTin: customerTin,
+        },
+        {}
+      );
+
+      return result.data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   /**
    * Lookup list of current user's branch information.
    * @returns
    */
-  lookupBranch = async (): Promise<Branch | any> => {
-    return JSON.stringify({});
+  lookupBranch = async (): Promise<Branch> => {
+    try {
+      const result = await this.vsdc.post(
+        `${this.host}/branches/selectBranches`,
+        {
+          tin: this.tin,
+          bhfId: this.branchId,
+          lastReqDt: this.lastRequestTime,
+        },
+        {}
+      );
+
+      return result.data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   /**
    * Lookup list of notices from the RRA.
    * @returns
    */
-  lookupNotices = async (): Promise<Notice | any> => {
-    return JSON.stringify({});
+  lookupNotices = async (): Promise<Notice> => {
+    try {
+      const result = await this.vsdc.post(
+        `${this.host}/notices/selectNotices`,
+        {
+          tin: this.tin,
+          bhfId: this.branchId,
+          lastReqDt: this.lastRequestTime,
+        },
+        {}
+      );
+
+      return result.data;
+    } catch (error) {
+      throw error;
+    }
   };
 }
