@@ -1,11 +1,16 @@
 import Vsdc from '../vsdc';
 
 describe('Info', () => {
-  const vsdc = new Vsdc({ tin: '123456789', isProduction: false });
+  const vsdc = new Vsdc({
+    tin: '123456789',
+    isProduction: false,
+    vsdcHostname: 'https://vsdc.kayko.rw',
+    deviceSerialNo: '00',
+  });
 
   describe('initialInfo', () => {
     it('should return values', async () => {
-      const result = vsdc.infoController.initialInfo(vsdc.tin);
+      const result = vsdc.infoController.initialInfo();
       expect(result).toMatchInlineSnapshot(`Promise {}`);
     });
   });
