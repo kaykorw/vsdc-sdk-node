@@ -8,7 +8,7 @@ export class StockController {
 
   constructor(private readonly vsdc: Vsdc) {
     this.tin = this.vsdc.tin;
-    this.host = this.vsdc.apiHostname;
+    this.host = this.vsdc.vsdcHostname;
   }
 
   lookupStock = async () => {

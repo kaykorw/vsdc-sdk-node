@@ -16,7 +16,7 @@ export class BranchController {
    */
   constructor(private readonly vsdc: Vsdc) {
     this.tin = this.vsdc.tin;
-    this.host = this.vsdc.apiHostname;
+    this.host = this.vsdc.vsdcHostname;
     this.branchId = this.vsdc.branchId;
     this.deviceSerialNo = this.vsdc.deviceSerialNo;
     this.lastRequestTime = this.vsdc.lastRequestTime;
