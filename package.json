@@ -45,6 +45,7 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.8",
+    "axios-mock-adapter": "^1.20.0",
     "husky": "^7.0.4",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
@@ -56,5 +57,8 @@
     "RRA",
     "Kayko",
     "Typescript"
-  ]
+  ],
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
